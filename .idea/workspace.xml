@@ -11,8 +11,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -26,6 +26,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -36,6 +37,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/resources" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -64,7 +70,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585318642294</updated>
-      <workItem from="1585318649804" duration="1643000" />
+      <workItem from="1585318649804" duration="2968000" />
     </task>
     <servers />
   </component>
@@ -84,22 +90,22 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="694" y="313" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1585322317687" />
-    <state width="1874" height="255" key="GridCell.Tab.0.bottom" timestamp="1585322728763">
+    <state width="1874" height="255" key="GridCell.Tab.0.bottom" timestamp="1585324592195">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="255" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1585322728763" />
-    <state width="1874" height="255" key="GridCell.Tab.0.center" timestamp="1585322728761">
+    <state width="1874" height="255" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1585324592195" />
+    <state width="1874" height="255" key="GridCell.Tab.0.center" timestamp="1585324592193">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="255" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1585322728761" />
-    <state width="1874" height="255" key="GridCell.Tab.0.left" timestamp="1585322728760">
+    <state width="1874" height="255" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1585324592193" />
+    <state width="1874" height="255" key="GridCell.Tab.0.left" timestamp="1585324592192">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="255" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1585322728760" />
-    <state width="1874" height="255" key="GridCell.Tab.0.right" timestamp="1585322728762">
+    <state width="1874" height="255" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1585324592192" />
+    <state width="1874" height="255" key="GridCell.Tab.0.right" timestamp="1585324592194">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="255" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1585322728762" />
+    <state width="1874" height="255" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1585324592194" />
     <state x="457" y="190" key="SettingsEditor" timestamp="1585318725631">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
