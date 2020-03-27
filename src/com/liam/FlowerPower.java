@@ -17,7 +17,6 @@ public class FlowerPower extends Application {
     public void start(Stage stage) throws Exception {
         root = new Pane();
         scene = new Scene(root, 1024, 768);
-
         stage.setScene(scene);
         stage.show();
     }
