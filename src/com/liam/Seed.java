@@ -26,6 +26,13 @@ public class Seed extends Growable implements IFlower {
         if (age == 300) {
             delegate = new Blossom(gc, x, y);
         }
+        if (age == 400) {
+            delegate = new Bloom(gc, x, y);
+        }
+        if (age == 500) {
+            delegate = new Seed(gc, x, y);
+            age = 0;
+        }
         delegate.update();
     }
 }
