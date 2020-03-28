@@ -53,5 +53,7 @@ public class FlowerPower extends Application {
         stage.setScene(scene);
         stage.setTitle(Constants.GAME_TITLE);
         stage.show();
+
+        timer.start();
     }
 }

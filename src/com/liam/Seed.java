@@ -17,7 +17,9 @@ public class Seed extends Growable implements IFlower {
 
     public void grow() {
         age += 1;
-
+        if (age == 100) {
+            delegate = new Sprout(gc, x, y);
+        }
         delegate.update();
     }
 }

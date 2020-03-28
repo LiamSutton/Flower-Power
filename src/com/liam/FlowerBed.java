@@ -24,6 +24,10 @@ public class FlowerBed extends GameObject {
     @Override
     public void update() {
         super.update();
+        foregroundContext.clearRect(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+        for (Growable obj : flowers) {
+            ((Seed)obj).grow();
+        }
     }
 
     public void plantSeeds(int amount) {
