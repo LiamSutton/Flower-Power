@@ -11,9 +11,10 @@ public class FlowerBed extends GameObject {
     GraphicsContext foregroundContext;
     ArrayList<Growable> flowers;
 
-    public FlowerBed(GraphicsContext gc, GraphicsContext foregroundContext, double x, double y, int xSize, int ySize) {
-        super(gc, x, y, xSize, ySize);
+    public FlowerBed(GraphicsContext gc, GraphicsContext foregroundContext, double x, double y) {
+        super(gc, x, y);
         img = new Image("/Flowerbed.png");
+        super.setSizeProperties();
         this.foregroundContext = foregroundContext;
         flowers = new ArrayList<Growable>();
         plantSeeds(8);
@@ -29,7 +30,7 @@ public class FlowerBed extends GameObject {
         for (int i = 0; i < amount; i++) {
             double x = this.x + 128 * i;
             double y = this.y - 96;
-            flowers.add(new Seed(foregroundContext, x, y, 128, 128));
+            flowers.add(new Seed(foregroundContext, x, y));
         }
     }
 }

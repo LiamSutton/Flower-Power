@@ -6,15 +6,19 @@ import javafx.scene.image.Image;
 public class GameObject {
     protected Image img;
     protected double x,y;
-    protected int xSize, ySize;
+    protected double xSize, ySize;
     protected GraphicsContext gc;
 
-    public GameObject(GraphicsContext gc, double x, double y, int xSize, int ySize) {
+    public GameObject(GraphicsContext gc, double x, double y) {
         this.gc = gc;
         this.x = x;
         this.y = y;
-        this.xSize = xSize;
-        this.ySize = ySize;
+    }
+
+    // TODO: Possibly check for null?
+    public void setSizeProperties() {
+        this.xSize = img.getWidth();
+        this.ySize = img.getHeight();
     }
 
     // If the GameObject has an Image, draw it to the screen at a given position

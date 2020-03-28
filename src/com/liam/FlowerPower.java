@@ -46,7 +46,7 @@ public class FlowerPower extends Application {
         backgroundContext.setFill(Color.SKYBLUE);
         backgroundContext.fillRect(0, 0, backgroundLayerCanvas.getWidth(), backgroundLayerCanvas.getHeight());
 
-        flowerBed = new FlowerBed(backgroundContext, foregroundContext, 0, backgroundLayerCanvas.getHeight() - 128, 1024, 128);
+        flowerBed = new FlowerBed(backgroundContext, foregroundContext, 0, backgroundLayerCanvas.getHeight() - 128);
 
         root.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas);
 
