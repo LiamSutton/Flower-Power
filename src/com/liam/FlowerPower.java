@@ -31,7 +31,6 @@ public class FlowerPower extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
         root = new Pane();
 
         scene = new Scene(root, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
