@@ -8,7 +8,8 @@ public class Bud extends Growable implements IFlower {
         super(gc, x, y);
         img = new Image("/Bud.png");
         setSizeProperties();
-        health = 150;
+        maxHealth = 150;
+        currentHealth = maxHealth;
         update();
     }
 }

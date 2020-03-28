@@ -10,7 +10,8 @@ public class Seed extends Growable implements IFlower {
         super(gc, x, y);
         img = new Image("/Seed.png");
         setSizeProperties();
-        health = 100;
+        maxHealth = 100;
+        currentHealth = maxHealth;
         age = 0;
         delegate = this;
         update();
