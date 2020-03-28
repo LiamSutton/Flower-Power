@@ -18,11 +18,13 @@ public class FlowerPower extends Application {
     GraphicsContext foregroundContext;
 
     FlowerBed flowerBed;
+    WateringCan wateringCan;
 
     AnimationTimer timer = new AnimationTimer() {
         @Override
         public void handle(long l) {
             flowerBed.update();
+            wateringCan.update();
         }
     };
 
@@ -47,7 +49,7 @@ public class FlowerPower extends Application {
         backgroundContext.fillRect(0, 0, backgroundLayerCanvas.getWidth(), backgroundLayerCanvas.getHeight());
 
         flowerBed = new FlowerBed(backgroundContext, foregroundContext, 0, backgroundLayerCanvas.getHeight() - 128);
-
+        wateringCan = new WateringCan(foregroundContext, 200, 200);
         root.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas);
 
         stage.setScene(scene);
