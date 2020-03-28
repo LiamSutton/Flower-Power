@@ -8,7 +8,8 @@ public class Bloom extends Growable implements IFlower {
         super(gc, x, y);
         img = new Image("/Bloom.png");
         setSizeProperties();
-        health = 200;
+        maxHealth = 200;
+        currentHealth = maxHealth;
         update();
     }
 }

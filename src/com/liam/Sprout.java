@@ -8,7 +8,8 @@ public class Sprout extends Growable implements IFlower {
         super(gc, x, y);
         img = new Image("/Sprout.png");
         setSizeProperties();
-        health = 125;
+        maxHealth = 125;
+        currentHealth = maxHealth;
         update();
     }
 
