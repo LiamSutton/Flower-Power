@@ -11,4 +11,9 @@ public class Sprout extends Growable implements IFlower {
         health = 125;
         update();
     }
+
+    @Override
+    public void update() {
+        super.update();
+    }
 }

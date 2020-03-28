@@ -2,6 +2,7 @@ package com.liam;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 
 public class Seed extends Growable implements IFlower {
     IFlower delegate;
@@ -14,6 +15,8 @@ public class Seed extends Growable implements IFlower {
         delegate = this;
         update();
     }
+
+
 
     public void grow() {
         age += 1;
