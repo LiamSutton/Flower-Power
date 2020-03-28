@@ -16,6 +16,7 @@ public class FlowerPower extends Application {
     Canvas foregroundLayerCanvas;
     GraphicsContext backgroundContext;
     GraphicsContext foregroundContext;
+
     FlowerBed flowerBed;
 
     AnimationTimer timer = new AnimationTimer() {
