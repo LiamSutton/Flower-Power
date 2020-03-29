@@ -17,7 +17,7 @@ public class FlowerBed extends GameObject {
         super.setSizeProperties();
         this.foregroundContext = foregroundContext;
         flowers = new ArrayList<Growable>();
-        plantSeeds(8);
+        plantSeeds(Constants.MAX_FLOWER_COUNT);
         update();
     }
 
