@@ -20,14 +20,14 @@ public class WateringCan extends GameObject implements IMoveable{
     }
 
     public void move(int direction) {
-        if (direction == 1) {
+        if (direction == Constants.DIRECTION_RIGHT) {
             if (currentPosition == 7) {
                 currentPosition = 0;
             } else {
                 currentPosition += 1;
             }
         }
-        else {
+        if (direction == Constants.DIRECTION_LEFT){
             if (currentPosition == 0) {
                 currentPosition = 7;
             } else {
