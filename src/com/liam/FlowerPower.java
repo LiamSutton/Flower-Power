@@ -41,8 +41,8 @@ public class FlowerPower extends Application {
     EventHandler<KeyEvent> keyPressedEvent = new EventHandler<KeyEvent>() {
         @Override
         public void handle(KeyEvent keyEvent) {
-            if (keyEvent.getCode() == KeyCode.A) wateringCan.x -= 128;
-            if (keyEvent.getCode() == KeyCode.D) wateringCan.x += 128;
+            if (keyEvent.getCode() == KeyCode.A) wateringCan.move(Constants.DIRECTION_LEFT);
+            if (keyEvent.getCode() == KeyCode.D) wateringCan.move(Constants.DIRECTION_RIGHT);
         }
     };
 
@@ -62,7 +62,7 @@ public class FlowerPower extends Application {
         backgroundContext.fillRect(0, 0, backgroundLayerCanvas.getWidth(), backgroundLayerCanvas.getHeight());
 
         flowerBed = new FlowerBed(backgroundContext, foregroundContext, 0, backgroundLayerCanvas.getHeight() - 128);
-        wateringCan = new WateringCan(foregroundContext, 200, 200);
+        wateringCan = new WateringCan(foregroundContext, 0, 200);
         root.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas);
 
         scene.setOnKeyPressed(keyPressedEvent);

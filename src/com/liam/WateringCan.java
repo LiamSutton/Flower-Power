@@ -19,8 +19,22 @@ public class WateringCan extends GameObject implements IMoveable{
         super.update();
     }
 
-    public void move(double x, double y) {
-        this.x = x;
-        this.y = y;
+    public void move(int direction) {
+        if (direction == 1) {
+            if (currentPosition == 7) {
+                currentPosition = 0;
+            } else {
+                currentPosition += 1;
+            }
+        }
+        else {
+            if (currentPosition == 0) {
+                currentPosition = 7;
+            } else {
+                currentPosition -= 1;
+            }
+
+        }
+        x = currentPosition * 128;
     }
 }
