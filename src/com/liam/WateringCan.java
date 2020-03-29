@@ -3,15 +3,14 @@ package com.liam;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.robot.Robot;
 
 public class WateringCan extends GameObject implements IMoveable{
-    Robot robot;
+    private int currentPosition;
     public WateringCan(GraphicsContext gc, double x, double y) {
         super(gc, x, y);
         img = new Image("/WateringCan.png");
-        robot = new Robot();
         super.setSizeProperties();
+        currentPosition = 0;
         update();
     }
 

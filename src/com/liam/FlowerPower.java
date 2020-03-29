@@ -8,6 +8,8 @@ import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -24,6 +26,10 @@ public class FlowerPower extends Application {
     FlowerBed flowerBed;
     WateringCan wateringCan;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     AnimationTimer timer = new AnimationTimer() {
         @Override
         public void handle(long l) {
@@ -32,16 +38,13 @@ public class FlowerPower extends Application {
         }
     };
 
-    EventHandler<MouseEvent> mouseMoved = new EventHandler<MouseEvent>() {
+    EventHandler<KeyEvent> keyPressedEvent = new EventHandler<KeyEvent>() {
         @Override
-        public void handle(MouseEvent mouseEvent) {
-            wateringCan.move(mouseEvent.getSceneX(), mouseEvent.getSceneY());
+        public void handle(KeyEvent keyEvent) {
+            if (keyEvent.getCode() == KeyCode.A) wateringCan.x -= 128;
+            if (keyEvent.getCode() == KeyCode.D) wateringCan.x += 128;
         }
     };
-
-    public static void main(String[] args) {
-        launch(args);
-    }
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -55,14 +58,14 @@ public class FlowerPower extends Application {
         foregroundLayerCanvas = new Canvas(scene.getWidth(), scene.getHeight());
         foregroundContext = foregroundLayerCanvas.getGraphicsContext2D();
 
-
         backgroundContext.setFill(Color.SKYBLUE);
         backgroundContext.fillRect(0, 0, backgroundLayerCanvas.getWidth(), backgroundLayerCanvas.getHeight());
 
         flowerBed = new FlowerBed(backgroundContext, foregroundContext, 0, backgroundLayerCanvas.getHeight() - 128);
         wateringCan = new WateringCan(foregroundContext, 200, 200);
         root.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas);
-        root.setOnMouseMoved(mouseMoved);
+
+        scene.setOnKeyPressed(keyPressedEvent);
 
         scene.setCursor(Cursor.NONE);
         stage.setScene(scene);
