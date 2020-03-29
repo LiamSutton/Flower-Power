@@ -4,6 +4,7 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -62,6 +63,8 @@ public class FlowerPower extends Application {
         wateringCan = new WateringCan(foregroundContext, 200, 200);
         root.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas);
         root.setOnMouseMoved(mouseMoved);
+
+        scene.setCursor(Cursor.NONE);
         stage.setScene(scene);
         stage.setTitle(Constants.GAME_TITLE);
         stage.show();
