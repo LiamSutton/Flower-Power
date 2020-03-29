@@ -2,9 +2,12 @@ package com.liam;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -25,6 +28,13 @@ public class FlowerPower extends Application {
         public void handle(long l) {
             flowerBed.update();
             wateringCan.update();
+        }
+    };
+
+    EventHandler<MouseEvent> mouseMoved = new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent mouseEvent) {
+            wateringCan.move(mouseEvent.getSceneX(), mouseEvent.getSceneY());
         }
     };
 
@@ -51,7 +61,7 @@ public class FlowerPower extends Application {
         flowerBed = new FlowerBed(backgroundContext, foregroundContext, 0, backgroundLayerCanvas.getHeight() - 128);
         wateringCan = new WateringCan(foregroundContext, 200, 200);
         root.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas);
-
+        root.setOnMouseMoved(mouseMoved);
         stage.setScene(scene);
         stage.setTitle(Constants.GAME_TITLE);
         stage.show();
