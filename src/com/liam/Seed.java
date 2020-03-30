@@ -11,11 +11,13 @@ public class Seed extends Growable implements IFlower {
     Random r;
     public Seed(GraphicsContext gc, double x, double y) {
         super(gc, x, y);
-        img = new Image("/Seed.png");
+        healthy = Constants.SEED_HEALTHY;
+        wilted = Constants.SEED_WILTED;
+        img = new Image(healthy);
         setSizeProperties();
         maxHealth = 100;
         r = new Random();
-        currentHealth = r.nextInt(100);
+        currentHealth = r.nextInt(70);
         age = 0;
         delegate = this;
         update();
