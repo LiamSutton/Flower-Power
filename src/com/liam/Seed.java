@@ -51,7 +51,11 @@ public class Seed extends Growable implements IFlower {
     }
 
     public void heal() {
-        ((Growable)delegate).currentHealth += 50;
+        Growable del = (Growable)delegate;
+        if (del.currentHealth != del.maxHealth) {
+            del.currentHealth += 50;
+            del.currentHealth = del.currentHealth > del.maxHealth ? del.maxHealth : del.currentHealth;
+        }
     }
 
     public double getCurrentHealth() {
