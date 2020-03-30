@@ -14,4 +14,14 @@ public class Bud extends Growable implements IFlower {
         currentHealth = h;
         update();
     }
+
+    @Override
+    public void heal() {
+        currentHealth += 3;
+    }
+
+    @Override
+    public void wilt() {
+        currentHealth -= 20;
+    }
 }

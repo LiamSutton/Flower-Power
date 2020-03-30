@@ -14,4 +14,15 @@ public class Blossom extends Growable implements IFlower {
         currentHealth = h;
         update();
     }
+
+    @Override
+    public void heal() {
+        System.out.println("Blossom heal");
+        currentHealth += 4;
+    }
+
+    @Override
+    public void wilt() {
+        currentHealth -= 25;
+    }
 }

@@ -41,7 +41,12 @@ public class WateringCan extends GameObject implements IMoveable{
     public int getCurrentPosition() {
         return currentPosition;
     }
-    public void water(Growable target) {
+
+    public void water(FlowerDelegator target) {
         target.heal();
+    }
+
+    public void wilt(FlowerDelegator target) {
+        target.wilt();
     }
 }

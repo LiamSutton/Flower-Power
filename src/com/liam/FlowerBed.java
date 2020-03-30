@@ -9,14 +9,14 @@ import java.util.ArrayList;
 
 public class FlowerBed extends GameObject {
     GraphicsContext foregroundContext;
-    ArrayList<Growable> flowers;
+    ArrayList<FlowerDelegator> flowers;
 
     public FlowerBed(GraphicsContext gc, GraphicsContext foregroundContext, double x, double y) {
         super(gc, x, y);
         img = new Image("/Flowerbed.png");
         super.setSizeProperties();
         this.foregroundContext = foregroundContext;
-        flowers = new ArrayList<Growable>();
+        flowers = new ArrayList<FlowerDelegator>();
         plantSeeds(Constants.MAX_FLOWER_COUNT);
         update();
     }
@@ -25,8 +25,8 @@ public class FlowerBed extends GameObject {
     public void update() {
         super.update();
         foregroundContext.clearRect(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
-        for (Growable obj : flowers) {
-            ((Seed)obj).grow();
+        for (FlowerDelegator obj : flowers) {
+            ((FlowerDelegator)obj).grow();
         }
     }
 
@@ -34,11 +34,11 @@ public class FlowerBed extends GameObject {
         for (int i = 0; i < amount; i++) {
             double x = this.x + 128 * i;
             double y = this.y - 96;
-            flowers.add(new Seed(foregroundContext, x, y));
+            flowers.add(new FlowerDelegator(foregroundContext, x, y));
         }
     }
 
-    public Growable getFlower(int index) {
+    public FlowerDelegator getFlower(int index) {
         return flowers.get(index);
     }
 }
