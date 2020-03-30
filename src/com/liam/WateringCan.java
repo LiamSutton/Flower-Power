@@ -35,7 +35,7 @@ public class WateringCan extends GameObject implements IMoveable{
             }
 
         }
-        x = currentPosition * 128;
+        x = (currentPosition * 128) + 64;
     }
 
     public int getCurrentPosition() {
