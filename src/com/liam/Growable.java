@@ -39,6 +39,10 @@ public class Growable extends GameObject{
     }
 
     public void tickDamage() {
-        currentHealth -= 1F;
+//        currentHealth -= 1F;
+    }
+
+    public void heal() {
+        this.currentHealth += 25;
     }
 }

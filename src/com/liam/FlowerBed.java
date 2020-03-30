@@ -37,4 +37,8 @@ public class FlowerBed extends GameObject {
             flowers.add(new Seed(foregroundContext, x, y));
         }
     }
+
+    public Growable getFlower(int index) {
+        return flowers.get(index);
+    }
 }
