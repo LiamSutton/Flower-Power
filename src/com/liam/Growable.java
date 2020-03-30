@@ -1,6 +1,7 @@
 package com.liam;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -8,6 +9,8 @@ import javafx.scene.text.Text;
 public class Growable extends GameObject{
     protected int age, maxHealth;
     protected double currentHealth;
+    protected String healthy;
+    protected String wilted;
     protected Text healthUI;
     public Growable(GraphicsContext gc, double x, double y) {
         super(gc, x, y);
@@ -17,6 +20,7 @@ public class Growable extends GameObject{
     public void update() {
         super.update();
         tickDamage();
+        checkWilted();
 
         double healthVal = (currentHealth / maxHealth) * 100;
         if (healthVal >= 75F) {
@@ -44,5 +48,14 @@ public class Growable extends GameObject{
 
     public void heal() {
         this.currentHealth += 25;
+    }
+
+    public void checkWilted() {
+        double h = (currentHealth / maxHealth) * 100;
+        if (h > 50F) {
+            img = new Image(healthy);
+        } else {
+            img = new Image(wilted);
+        }
     }
 }
