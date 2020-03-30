@@ -48,6 +48,10 @@ public class Seed extends Growable implements IFlower {
         delegate.update();
     }
 
+    public void heal() {
+        ((Growable)delegate).currentHealth += 50;
+    }
+
     public double getCurrentHealth() {
         return ((Growable)delegate).currentHealth;
     }
