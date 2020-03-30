@@ -42,6 +42,10 @@ public class FlowerDelegator implements IFlower {
             delegate = new Seed(gc, x, y);
             age = 0;
         }
+
+        if (getCurrentHealth() <= 0) {
+            delegate = new Seed(gc, x, y);
+        }
         delegate.update();
     }
 
