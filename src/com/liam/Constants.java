@@ -17,4 +17,5 @@ public class Constants {
     static final String BLOSSOM_WILTED = "/Wilted-Blossom.png";
     static final String BLOOM_HEALTHY = "/Bloom.png";
     static final String BLOOM_WILTED = "/Wilted-Bloom.png";
+    static final String SUN = "/Sun.png";
 }
