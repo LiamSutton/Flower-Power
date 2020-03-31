@@ -46,10 +46,6 @@ public class Growable extends GameObject{
 //        currentHealth -= 1F;
     }
 
-    public void heal() {
-        this.currentHealth += 25;
-    }
-
     public void checkWilted() {
         double h = (currentHealth / maxHealth) * 100;
         if (h > 50F) {

@@ -22,4 +22,15 @@ public class Sprout extends Growable implements IFlower {
     public void update() {
         super.update();
     }
+
+    @Override
+    public void heal() {
+        System.out.println("Sprout heal");
+        currentHealth += 2;
+    }
+
+    @Override
+    public void wilt() {
+        currentHealth -= 15;
+    }
 }

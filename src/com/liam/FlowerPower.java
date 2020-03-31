@@ -45,8 +45,14 @@ public class FlowerPower extends Application {
             if (keyEvent.getCode() == KeyCode.D) wateringCan.move(Constants.DIRECTION_RIGHT);
             if (keyEvent.getCode() == KeyCode.Q) {
                 int position = wateringCan.getCurrentPosition();
-                Growable target = flowerBed.getFlower(position);
+                FlowerDelegator target = flowerBed.getFlower(position);
                 wateringCan.water(target);
+            }
+
+            if (keyEvent.getCode() == KeyCode.SPACE) {
+                int position = wateringCan.getCurrentPosition();
+                FlowerDelegator target = flowerBed.getFlower(position);
+                wateringCan.wilt(target);
             }
         }
     };
