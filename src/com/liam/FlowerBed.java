@@ -4,6 +4,7 @@ import com.liam.GameObject;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Arc;
 
 import java.util.ArrayList;
 
@@ -26,8 +27,9 @@ public class FlowerBed extends GameObject {
         super.update();
         foregroundContext.clearRect(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         for (FlowerDelegator obj : flowers) {
-            ((FlowerDelegator)obj).grow();
+            obj.grow();
         }
+
     }
 
     public void plantSeeds(int amount) {

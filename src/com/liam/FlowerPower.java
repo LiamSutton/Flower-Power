@@ -25,6 +25,7 @@ public class FlowerPower extends Application {
 
     FlowerBed flowerBed;
     WateringCan wateringCan;
+    Sun sun;
 
     public static void main(String[] args) {
         launch(args);
@@ -35,6 +36,7 @@ public class FlowerPower extends Application {
         public void handle(long l) {
             flowerBed.update();
             wateringCan.update();
+            sun.update();
         }
     };
 
@@ -54,6 +56,8 @@ public class FlowerPower extends Application {
                 FlowerDelegator target = flowerBed.getFlower(position);
                 wateringCan.wilt(target);
             }
+            if (keyEvent.getCode() == KeyCode.LEFT) sun.move(Constants.DIRECTION_LEFT);
+            if (keyEvent.getCode() == KeyCode.RIGHT) sun.move(Constants.DIRECTION_RIGHT);
         }
     };
 
@@ -73,7 +77,8 @@ public class FlowerPower extends Application {
         backgroundContext.fillRect(0, 0, backgroundLayerCanvas.getWidth(), backgroundLayerCanvas.getHeight());
 
         flowerBed = new FlowerBed(backgroundContext, foregroundContext, 0, backgroundLayerCanvas.getHeight() - 128);
-        wateringCan = new WateringCan(foregroundContext, 64, 200);
+        wateringCan = new WateringCan(foregroundContext, 64, 384);
+        sun = new Sun(foregroundContext, 0, 224);
         root.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas);
 
         scene.setOnKeyPressed(keyPressedEvent);
