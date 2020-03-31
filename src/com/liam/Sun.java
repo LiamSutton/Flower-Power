@@ -9,6 +9,7 @@ import javafx.scene.shape.ArcType;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.concurrent.Flow;
 
 public class Sun extends GameObject implements IMoveable {
     int currentPosition = 0;
@@ -44,5 +45,9 @@ public class Sun extends GameObject implements IMoveable {
     @Override
     public void update() {
         super.update();
+    }
+
+    public void Shine(FlowerDelegator target) {
+        target.row();
     }
 }

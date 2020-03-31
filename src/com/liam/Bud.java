@@ -24,4 +24,9 @@ public class Bud extends Growable implements IFlower {
     public void wilt() {
         currentHealth -= 20;
     }
+
+    @Override
+    public void grow() {
+        age += 1.7F;
+    }
 }
