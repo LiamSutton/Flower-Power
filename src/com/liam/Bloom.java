@@ -24,4 +24,9 @@ public class Bloom extends Growable implements IFlower {
     public void wilt() {
         currentHealth -= 30;
     }
+
+    @Override
+    public void grow() {
+        age += 2F;
+    }
 }

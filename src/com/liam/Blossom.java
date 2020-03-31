@@ -21,6 +21,11 @@ public class Blossom extends Growable implements IFlower {
     }
 
     @Override
+    public void grow() {
+        age += 1.85F;
+    }
+
+    @Override
     public void wilt() {
         currentHealth -= 25;
     }

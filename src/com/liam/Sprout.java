@@ -29,6 +29,11 @@ public class Sprout extends Growable implements IFlower {
     }
 
     @Override
+    public void grow() {
+        age += 1.5F;
+    }
+
+    @Override
     public void wilt() {
         currentHealth -= 15;
     }

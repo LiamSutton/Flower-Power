@@ -37,6 +37,7 @@ public class FlowerPower extends Application {
             flowerBed.update();
             wateringCan.update();
             sun.update();
+            sun.Shine(flowerBed.getFlower(sun.currentPosition));
         }
     };
 

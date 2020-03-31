@@ -6,7 +6,7 @@ import javafx.scene.image.Image;
 import java.util.Random;
 
 // TODO: Should FLowerDelegator implement IFLower????
-public class FlowerDelegator implements IFlower {
+public class FlowerDelegator {
     IFlower delegate;
     Random r;
     protected int age = 0;
@@ -22,7 +22,7 @@ public class FlowerDelegator implements IFlower {
 
 
     public void grow() {
-        age += 1;
+        age++;
         if (age == 100) {
             double h = ((Growable)delegate).currentHealth;
             delegate = new Sprout(gc, x, y, h);
@@ -51,19 +51,15 @@ public class FlowerDelegator implements IFlower {
     }
 
 
-    @Override
-    public void update() {
-    }
-
-    @Override
     public void heal() {
         delegate.heal();
     }
 
-    @Override
     public void wilt() {
         delegate.wilt();
     }
+
+
 
     public double getCurrentHealth() {
         return ((Growable)delegate).currentHealth;

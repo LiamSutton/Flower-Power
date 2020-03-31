@@ -28,4 +28,9 @@ public class Seed extends Growable implements IFlower {
     public void wilt() {
         currentHealth -= 10;
     }
+
+    @Override
+    public void grow() {
+        age += 1;
+    }
 }
