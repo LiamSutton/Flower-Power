@@ -2,6 +2,9 @@ package com.liam;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Arc;
+import javafx.scene.shape.ArcType;
 
 import java.util.Dictionary;
 import java.util.Enumeration;
@@ -9,7 +12,7 @@ import java.util.HashMap;
 
 public class Sun extends GameObject implements IMoveable {
     int currentPosition = 0;
-    final int[] yPositions = {160, 64, 32, 32, 32, 32, 64, 160};
+    final int[] yPositions = {180, 92, 32, 0, 0, 32, 92, 180};
     public Sun(GraphicsContext gc, double x, double y) {
         super(gc, x, y);
         img = new Image(Constants.SUN);
@@ -34,13 +37,8 @@ public class Sun extends GameObject implements IMoveable {
             }
         }
         y = yPositions[currentPosition];
-        x = (currentPosition * 128) + 16;
+        x = (currentPosition * 128);
 
-
-
-        System.out.println("Stats");
-        System.out.println("X:" + x + ", Y: " + y);
-        System.out.println("Current Position: " + currentPosition);
     }
 
     @Override
