@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 
 import java.util.Random;
 
+// TODO: Should FLowerDelegator implement IFLower????
 public class FlowerDelegator implements IFlower {
     IFlower delegate;
     Random r;
@@ -52,9 +53,9 @@ public class FlowerDelegator implements IFlower {
 
     @Override
     public void update() {
-
     }
 
+    @Override
     public void heal() {
         delegate.heal();
     }
