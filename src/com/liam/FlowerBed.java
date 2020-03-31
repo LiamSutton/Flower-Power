@@ -27,7 +27,7 @@ public class FlowerBed extends GameObject {
         super.update();
         foregroundContext.clearRect(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         for (FlowerDelegator obj : flowers) {
-            obj.grow();
+            obj.delegate.update();
         }
 
     }

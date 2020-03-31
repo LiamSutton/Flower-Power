@@ -48,6 +48,6 @@ public class Sun extends GameObject implements IMoveable {
     }
 
     public void Shine(FlowerDelegator target) {
-        target.row();
+        target.grow();
     }
 }
