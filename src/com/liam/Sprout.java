@@ -25,7 +25,6 @@ public class Sprout extends Growable implements IFlower {
 
     @Override
     public void heal() {
-        System.out.println("Sprout heal");
         currentHealth += 2;
     }
 
