@@ -78,7 +78,7 @@ public class FlowerPower extends Application {
 
         flowerBed = new FlowerBed(backgroundContext, foregroundContext, 0, backgroundLayerCanvas.getHeight() - 128);
         wateringCan = new WateringCan(foregroundContext, 64, 384);
-        sun = new Sun(foregroundContext, 0, 160);
+        sun = new Sun(foregroundContext, 0, 224);
         root.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas);
 
         scene.setOnKeyPressed(keyPressedEvent);

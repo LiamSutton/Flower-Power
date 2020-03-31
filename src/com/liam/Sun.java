@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 public class Sun extends GameObject implements IMoveable {
     int currentPosition = 0;
-    final int[] yPositions = {180, 92, 32, 0, 0, 32, 92, 180};
+    final int[] yPositions = {224, 128, 32, 0, 0, 32, 128, 224};
     public Sun(GraphicsContext gc, double x, double y) {
         super(gc, x, y);
         img = new Image(Constants.SUN);
