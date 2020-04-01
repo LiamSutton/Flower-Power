@@ -13,6 +13,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class FlowerPower extends Application {
@@ -22,11 +24,10 @@ public class FlowerPower extends Application {
     Canvas foregroundLayerCanvas;
     GraphicsContext backgroundContext;
     GraphicsContext foregroundContext;
-
+    Text scoreText;
     FlowerBed flowerBed;
     WateringCan wateringCan;
     Sun sun;
-
     public static void main(String[] args) {
         launch(args);
     }
@@ -38,6 +39,7 @@ public class FlowerPower extends Application {
             wateringCan.update();
             sun.update();
             sun.Shine(flowerBed.getFlower(sun.currentPosition));
+            scoreText.setText("SCORE: " + GameManager.score);
         }
     };
 
@@ -59,6 +61,7 @@ public class FlowerPower extends Application {
             }
             if (keyEvent.getCode() == KeyCode.LEFT) sun.move(Constants.DIRECTION_LEFT);
             if (keyEvent.getCode() == KeyCode.RIGHT) sun.move(Constants.DIRECTION_RIGHT);
+            if (keyEvent.getCode() == KeyCode.W) GameManager.score+=100;
         }
     };
 
@@ -67,7 +70,6 @@ public class FlowerPower extends Application {
         root = new Pane();
 
         scene = new Scene(root, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
-
         backgroundLayerCanvas = new Canvas(scene.getWidth(), scene.getHeight());
         backgroundContext = backgroundLayerCanvas.getGraphicsContext2D();
 
@@ -80,7 +82,10 @@ public class FlowerPower extends Application {
         flowerBed = new FlowerBed(backgroundContext, foregroundContext, 0, backgroundLayerCanvas.getHeight() - 128);
         wateringCan = new WateringCan(foregroundContext, 64, 384);
         sun = new Sun(foregroundContext, 0, 224);
-        root.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas);
+        scoreText = new Text(0, 20, "SCORE: " + GameManager.score);
+        scoreText.setFill(Color.WHITE);
+        scoreText.setFont(new Font("verdana", 20));
+        root.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas, scoreText);
 
         scene.setOnKeyPressed(keyPressedEvent);
 
