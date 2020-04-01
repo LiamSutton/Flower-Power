@@ -1,5 +1,6 @@
 package com.liam;
 
+import javafx.animation.Animation;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -42,6 +43,7 @@ public class FlowerDelegator {
         if (age == 500) {
             delegate = new Seed(gc, x, y);
             age = 0;
+            GameManager.score += 100;
         }
 
         if (getCurrentHealth() <= 0) {
