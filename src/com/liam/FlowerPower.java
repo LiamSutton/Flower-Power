@@ -70,36 +70,52 @@ public class FlowerPower extends Application {
     };
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         primaryStage = stage;
+        mainMenuScene = createMainMenu();
+        gameScene = createGameScene();
 
-        gameRoot = new Pane();
+        primaryStage.setScene(mainMenuScene);
+        primaryStage.show();
+
+    }
+
+    public Scene createMainMenu() {
         mainMenuRoot = new Pane();
-
-        gameScene = new Scene(gameRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         mainMenuScene = new Scene(mainMenuRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 
+        // Create UI for Main Menu
         Label greetingsLabel = new Label("Welcome to Flower Power!");
-        Button startGameButton = new Button("Start game");
-        greetingsLabel.setLayoutY(284);
-        greetingsLabel.setLayoutX(350);
+        greetingsLabel.setLayoutX(300);
+        greetingsLabel.setLayoutY(412);
 
-        startGameButton.setLayoutY(384);
-        startGameButton.setLayoutX(350);
+        Button startGameButton = new Button("Start Game");
+        startGameButton.setLayoutX(300);
+        startGameButton.setLayoutY(512);
 
-        startGameButton.setOnAction(e -> {
+        mainMenuScene.setCursor(Cursor.DEFAULT);
+        // Hook up scene transition
+        startGameButton.setOnAction(e-> {
+            // Transition to game scene
             primaryStage.setScene(gameScene);
-            primaryStage.show();
             timer.start();
+            primaryStage.show();
         });
 
-        mainMenuRoot.setCursor(Cursor.DEFAULT);
+        // Add Main Menu components to the Pane
         mainMenuRoot.getChildren().addAll(greetingsLabel, startGameButton);
+        return mainMenuScene;
+    }
+
+    public Scene createGameScene() {
+        gameRoot = new Pane();
+        gameScene = new Scene(gameRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+        gameScene.setCursor(Cursor.NONE);
 
         backgroundLayerCanvas = new Canvas(gameScene.getWidth(), gameScene.getHeight());
-        backgroundContext = backgroundLayerCanvas.getGraphicsContext2D();
-
         foregroundLayerCanvas = new Canvas(gameScene.getWidth(), gameScene.getHeight());
+
+        backgroundContext = backgroundLayerCanvas.getGraphicsContext2D();
         foregroundContext = foregroundLayerCanvas.getGraphicsContext2D();
 
         backgroundContext.setFill(Color.SKYBLUE);
@@ -109,15 +125,13 @@ public class FlowerPower extends Application {
         wateringCan = new WateringCan(foregroundContext, 64, 384);
         sun = new Sun(foregroundContext, 0, 224);
         scoreText = new Text(0, 20, "SCORE: " + GameManager.score);
-        scoreText.setFill(Color.WHITE);
         scoreText.setFont(new Font("verdana", 20));
+        scoreText.setFill(Color.WHITE);
+
         gameRoot.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas, scoreText);
 
         gameScene.setOnKeyPressed(keyPressedEvent);
 
-        gameScene.setCursor(Cursor.NONE);
-        stage.setScene(mainMenuScene);
-        stage.setTitle(Constants.GAME_TITLE);
-        stage.show();
+        return gameScene;
     }
 }
