@@ -2,15 +2,15 @@ package com.liam;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -18,8 +18,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class FlowerPower extends Application {
-    Pane root;
-    Scene scene;
+    Pane mainMenuRoot;
+    Pane gameRoot;
+    Stage primaryStage;
+    Scene gameScene;
+    Scene mainMenuScene;
+
     Canvas backgroundLayerCanvas;
     Canvas foregroundLayerCanvas;
     GraphicsContext backgroundContext;
@@ -66,14 +70,52 @@ public class FlowerPower extends Application {
     };
 
     @Override
-    public void start(Stage stage) throws Exception {
-        root = new Pane();
+    public void start(Stage stage) {
+        primaryStage = stage;
+        mainMenuScene = createMainMenu();
+        gameScene = createGameScene();
 
-        scene = new Scene(root, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
-        backgroundLayerCanvas = new Canvas(scene.getWidth(), scene.getHeight());
+        primaryStage.setScene(mainMenuScene);
+        primaryStage.show();
+
+    }
+
+    public Scene createMainMenu() {
+        mainMenuRoot = new Pane();
+        mainMenuScene = new Scene(mainMenuRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+
+        // Create UI for Main Menu
+        Label greetingsLabel = new Label("Welcome to Flower Power!");
+        greetingsLabel.setLayoutX(300);
+        greetingsLabel.setLayoutY(412);
+
+        Button startGameButton = new Button("Start Game");
+        startGameButton.setLayoutX(300);
+        startGameButton.setLayoutY(512);
+
+        mainMenuScene.setCursor(Cursor.DEFAULT);
+        // Hook up scene transition
+        startGameButton.setOnAction(e-> {
+            // Transition to game scene
+            primaryStage.setScene(gameScene);
+            timer.start();
+            primaryStage.show();
+        });
+
+        // Add Main Menu components to the Pane
+        mainMenuRoot.getChildren().addAll(greetingsLabel, startGameButton);
+        return mainMenuScene;
+    }
+
+    public Scene createGameScene() {
+        gameRoot = new Pane();
+        gameScene = new Scene(gameRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+        gameScene.setCursor(Cursor.NONE);
+
+        backgroundLayerCanvas = new Canvas(gameScene.getWidth(), gameScene.getHeight());
+        foregroundLayerCanvas = new Canvas(gameScene.getWidth(), gameScene.getHeight());
+
         backgroundContext = backgroundLayerCanvas.getGraphicsContext2D();
-
-        foregroundLayerCanvas = new Canvas(scene.getWidth(), scene.getHeight());
         foregroundContext = foregroundLayerCanvas.getGraphicsContext2D();
 
         backgroundContext.setFill(Color.SKYBLUE);
@@ -83,17 +125,13 @@ public class FlowerPower extends Application {
         wateringCan = new WateringCan(foregroundContext, 64, 384);
         sun = new Sun(foregroundContext, 0, 224);
         scoreText = new Text(0, 20, "SCORE: " + GameManager.score);
-        scoreText.setFill(Color.WHITE);
         scoreText.setFont(new Font("verdana", 20));
-        root.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas, scoreText);
+        scoreText.setFill(Color.WHITE);
 
-        scene.setOnKeyPressed(keyPressedEvent);
+        gameRoot.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas, scoreText);
 
-        scene.setCursor(Cursor.NONE);
-        stage.setScene(scene);
-        stage.setTitle(Constants.GAME_TITLE);
-        stage.show();
+        gameScene.setOnKeyPressed(keyPressedEvent);
 
-        timer.start();
+        return gameScene;
     }
 }
