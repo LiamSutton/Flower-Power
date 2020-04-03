@@ -32,6 +32,7 @@ public class FlowerPower extends Application {
     GraphicsContext backgroundContext;
     GraphicsContext foregroundContext;
     Text scoreText;
+    Text livesText;
     FlowerBed flowerBed;
     WateringCan wateringCan;
     Sun sun;
@@ -55,6 +56,7 @@ public class FlowerPower extends Application {
             wateringCan.update();
             sun.update();
             scoreText.setText("SCORE: " + GameManager.score);
+            livesText.setText("LIVES LEFT: " + GameManager.lives);
         }
     };
 
@@ -217,7 +219,11 @@ public class FlowerPower extends Application {
         scoreText.setFont(new Font("verdana", 20));
         scoreText.setFill(Color.WHITE);
 
-        gameRoot.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas, scoreText);
+        livesText = new Text(0, 50, "LIVES LEFT: " + GameManager.lives);
+        livesText.setFont(new Font("verdana", 20));
+        livesText.setFill(Color.WHITE);
+
+        gameRoot.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas, scoreText, livesText);
 
         gameScene.setOnKeyPressed(keyPressedEvent);
 
