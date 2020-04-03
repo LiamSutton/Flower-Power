@@ -9,11 +9,11 @@ public class Constants {
     static final String GAME_TITLE = "Flower Power!";
     static final String MENU_TITLE = "Main Menu";
     static final String GREETING_MESSAGE = "Welcome to Flower Power!";
-    static final String OBJECTIVE_MESSAGE = "The aim of flower power is to keep all the plants in your flowerbed healthy until they grow enough that they can be harvested! " +
-                                            "Every time a plant gets harvested you get 100 points and any time a plant dies you lose a life, " +
+    static final String OBJECTIVE_MESSAGE = "The aim of flower power is to keep all the plants in your flowerbed healthy\nuntil they grow enough that they can be harvested!\n" +
+                                            "Every time a plant gets harvested you get 100 points and any time a plant dies\nyou lose a life, " +
                                             "the game ends when you lose 3 lives.";
-    static final String WATERING_CAN_INSTRUCTION = "Move your watering can between flowers using A to go left and D to go right";
-    static final String SUN_INSTRUCTION = "Move the sun between flowers using the Left and Right arrow keys";
+    static final String WATERING_CAN_INSTRUCTION = "Watering-can controls: A = LEFT, D = RIGHT";
+    static final String SUN_INSTRUCTION = "Sun controls: LEFT ARROW = LEFT, RIGHT ARROW = RIGHT";
     static final String SEED_HEALTHY = "/Seed.png";
     static final String SEED_WILTED = "/Wilted-Seed.png";
     static final String SPROUT_HEALTHY = "/Sprout.png";

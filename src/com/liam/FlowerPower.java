@@ -142,21 +142,41 @@ public class FlowerPower extends Application {
         informationRoot = new Pane();
         informationScene = new Scene(informationRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 
+        Label objectiveHeadingLabel = new Label("Objective");
+        objectiveHeadingLabel.setFont(new Font("Verdana", 32));
+        objectiveHeadingLabel.setLayoutX(400);
+        objectiveHeadingLabel.setLayoutY(50);
+        objectiveHeadingLabel.setPrefSize(1024, 100);
+
         Label objectiveLabel = new Label(Constants.OBJECTIVE_MESSAGE);
-        objectiveLabel.setLayoutX(350);
-        objectiveLabel.setLayoutY(200);
+        objectiveLabel.setFont(new Font("Verdana", 22));
+        objectiveLabel.setLayoutX(100);
+        objectiveLabel.setLayoutY(150);
+        objectiveLabel.setPrefSize(1024, 200);
+
+        Label movementHeadingLabel = new Label("How to move");
+        movementHeadingLabel.setFont(new Font("Verdana", 32));
+        movementHeadingLabel.setLayoutX(375);
+        movementHeadingLabel.setLayoutY(350);
+        movementHeadingLabel.setPrefSize(1024, 100);
 
         Label wateringCanLabel = new Label(Constants.WATERING_CAN_INSTRUCTION);
-        wateringCanLabel.setLayoutX(350);
-        wateringCanLabel.setLayoutY(300);
+        wateringCanLabel.setFont(new Font("Verdana", 22));
+        wateringCanLabel.setLayoutX(250);
+        wateringCanLabel.setLayoutY(400);
+        wateringCanLabel.setPrefSize(1024, 100);
 
         Label sunLabel = new Label(Constants.SUN_INSTRUCTION);
-        sunLabel.setLayoutX(350);
-        sunLabel.setLayoutY(400);
+        sunLabel.setFont(new Font("Verdana", 22));
+        sunLabel.setLayoutX(250);
+        sunLabel.setLayoutY(450);
+        sunLabel.setPrefSize(1024, 100);
 
         Button backButton = new Button("Go Back");
-        backButton.setLayoutX(350);
-        backButton.setLayoutY(500);
+        backButton.setFont(new Font("Verdana", 24));
+        backButton.setLayoutX(300);
+        backButton.setLayoutY(550);
+        backButton.setPrefSize(350, 100);
 
         informationScene.setCursor(Cursor.DEFAULT);
 
@@ -165,11 +185,17 @@ public class FlowerPower extends Application {
             primaryStage.show();
         });
 
-        informationRoot.getChildren().addAll(objectiveLabel, wateringCanLabel, sunLabel, backButton);
+        informationRoot.getChildren().addAll(objectiveHeadingLabel, movementHeadingLabel, objectiveLabel, wateringCanLabel, sunLabel, backButton);
 
         return informationScene;
     }
 
+    // career development: April 20th = 17 days
+    // design patterns: April 24th = 21 days
+    // client server: April 30th = 27 days
+    // data structures: May 15th
+    // net sec exam: may 19th
+    // net sec cw: 22 may
     public Scene createGameScene() {
         gameRoot = new Pane();
         gameScene = new Scene(gameRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
