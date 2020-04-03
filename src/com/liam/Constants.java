@@ -7,6 +7,7 @@ public class Constants {
     static final int DIRECTION_LEFT = -1;
     static final int DIRECTION_RIGHT = 1;
     static final String GAME_TITLE = "Flower Power!";
+    static final String MENU_TITLE = "Main Menu";
     static final String GREETING_MESSAGE = "Welcome to Flower Power!";
     static final String OBJECTIVE_MESSAGE = "The aim of flower power is to keep all the plants in your flowerbed healthy until they grow enough that they can be harvested! " +
                                             "Every time a plant gets harvested you get 100 points and any time a plant dies you lose a life, " +

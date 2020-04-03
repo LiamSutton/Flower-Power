@@ -100,16 +100,23 @@ public class FlowerPower extends Application {
 
         // Create UI for Main Menu
         Label greetingsLabel = new Label(Constants.GREETING_MESSAGE);
+        greetingsLabel.setFont(new Font("Verdana", 32));
         greetingsLabel.setLayoutX(300);
-        greetingsLabel.setLayoutY(412);
+        greetingsLabel.setLayoutY(100);
+        greetingsLabel.setPrefSize(512, 100);
 
         Button startGameButton = new Button("Start Game");
+        startGameButton.setFont(new Font("Verdana", 24));
         startGameButton.setLayoutX(300);
-        startGameButton.setLayoutY(512);
+        startGameButton.setLayoutY(300);
+        startGameButton.setPrefSize(350, 100);
 
         Button informationButton = new Button("Information");
-        informationButton.setLayoutY(500);
-        informationButton.setLayoutY(512);
+        informationButton.setFont(new Font("Verdana", 24));
+        informationButton.setLayoutX(300);
+        informationButton.setLayoutY(450);
+        informationButton.setPrefSize(350, 100);
+
 
         mainMenuScene.setCursor(Cursor.DEFAULT);
         // Hook up scene transition
