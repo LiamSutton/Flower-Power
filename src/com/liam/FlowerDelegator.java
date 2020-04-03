@@ -53,6 +53,7 @@ public class FlowerDelegator {
     }
 
 
+    // TODO: investigate potential solution to adding max health checks to every IFlower.
     public void heal() {
         delegate.heal();
     }
