@@ -42,9 +42,12 @@ public class FlowerPower extends Application {
     AnimationTimer timer = new AnimationTimer() {
         @Override
         public void handle(long l) {
+            // TODO: is there a better way of updating the scenes value of score?
             if (GameManager.lives <= 0) {
                 timer.stop();
+                gameOverScene = createGameOverScene();
                 primaryStage.setScene(gameOverScene);
+                System.out.println(GameManager.score);
                 primaryStage.show();
             }
             flowerBed.update();
