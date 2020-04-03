@@ -22,8 +22,7 @@ public class FlowerDelegator {
 
 
 
-    public void grow() {
-        age++;
+    public void checkGrowth() {
         if (age == 100) {
             double h = ((Growable)delegate).currentHealth;
             delegate = new Sprout(gc, x, y, h);
@@ -62,6 +61,9 @@ public class FlowerDelegator {
         delegate.wilt();
     }
 
+    public void grow() {
+        age++;
+    }
 
 
     public double getCurrentHealth() {

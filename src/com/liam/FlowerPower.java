@@ -50,10 +50,10 @@ public class FlowerPower extends Application {
                 System.out.println(GameManager.score);
                 primaryStage.show();
             }
+            sun.Shine(flowerBed.getFlower(sun.currentPosition));
             flowerBed.update();
             wateringCan.update();
             sun.update();
-            sun.Shine(flowerBed.getFlower(sun.currentPosition));
             scoreText.setText("SCORE: " + GameManager.score);
         }
     };
