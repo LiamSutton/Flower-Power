@@ -48,6 +48,7 @@ public class FlowerDelegator {
 
         if (getCurrentHealth() <= 0) {
             delegate = new Seed(gc, x, y);
+            GameManager.lives--;
         }
         delegate.update();
     }
