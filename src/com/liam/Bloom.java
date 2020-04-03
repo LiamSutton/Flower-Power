@@ -18,6 +18,7 @@ public class Bloom extends Growable implements IFlower {
     @Override
     public void heal() {
         currentHealth += 5;
+        currentHealth = currentHealth >= maxHealth ? maxHealth : currentHealth;
     }
 
     @Override
