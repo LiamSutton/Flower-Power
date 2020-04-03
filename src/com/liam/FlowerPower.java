@@ -225,5 +225,9 @@ public class FlowerPower extends Application {
     public void resetGameState() {
         GameManager.score = 0;
         GameManager.lives = 3;
+
+        flowerBed = new FlowerBed(backgroundContext, foregroundContext, 0, backgroundLayerCanvas.getHeight() - 128);
+        wateringCan = new WateringCan(foregroundContext, 64, 384);
+        sun = new Sun(foregroundContext, 0, 224);
     }
 }
