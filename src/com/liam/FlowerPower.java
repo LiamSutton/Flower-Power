@@ -202,16 +202,22 @@ public class FlowerPower extends Application {
         gameOverRoot = new Pane();
         gameOverScene = new Scene(gameOverRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         Label scoreLabel = new Label("Your score was: " + GameManager.score);
-        scoreLabel.setLayoutX(450);
-        scoreLabel.setLayoutY(300);
+        scoreLabel.setFont(new Font("Verdana", 32));
+        scoreLabel.setLayoutX(300);
+        scoreLabel.setLayoutY(100);
+        scoreLabel.setPrefSize(350, 100);
 
         Button restartButton = new Button("Play again");
-        restartButton.setLayoutX(450);
-        restartButton.setLayoutY(400);
+        restartButton.setFont(new Font("Verdana", 24));
+        restartButton.setLayoutX(300);
+        restartButton.setLayoutY(300);
+        restartButton.setPrefSize(350, 100);
 
         Button menuButton = new Button("Go to menu");
-        menuButton.setLayoutX(450);
-        menuButton.setLayoutY(500);
+        menuButton.setFont(new Font("Verdana", 24));
+        menuButton.setLayoutX(300);
+        menuButton.setLayoutY(450);
+        menuButton.setPrefSize(350, 100);
 
         gameOverScene.setCursor(Cursor.DEFAULT);
 
