@@ -19,10 +19,12 @@ import javafx.stage.Stage;
 
 public class FlowerPower extends Application {
     Pane mainMenuRoot;
+    Pane informationRoot;
     Pane gameRoot;
     Stage primaryStage;
     Scene gameScene;
     Scene mainMenuScene;
+    Scene informationScene;
 
     Canvas backgroundLayerCanvas;
     Canvas foregroundLayerCanvas;
@@ -73,6 +75,7 @@ public class FlowerPower extends Application {
     public void start(Stage stage) {
         primaryStage = stage;
         mainMenuScene = createMainMenu();
+        informationScene = createInformationScene();
         gameScene = createGameScene();
 
         primaryStage.setScene(mainMenuScene);
@@ -85,13 +88,17 @@ public class FlowerPower extends Application {
         mainMenuScene = new Scene(mainMenuRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 
         // Create UI for Main Menu
-        Label greetingsLabel = new Label("Welcome to Flower Power!");
+        Label greetingsLabel = new Label(Constants.GREETING_MESSAGE);
         greetingsLabel.setLayoutX(300);
         greetingsLabel.setLayoutY(412);
 
         Button startGameButton = new Button("Start Game");
         startGameButton.setLayoutX(300);
         startGameButton.setLayoutY(512);
+
+        Button informationButton = new Button("Information");
+        informationButton.setLayoutY(500);
+        informationButton.setLayoutY(512);
 
         mainMenuScene.setCursor(Cursor.DEFAULT);
         // Hook up scene transition
@@ -102,9 +109,46 @@ public class FlowerPower extends Application {
             primaryStage.show();
         });
 
+        informationButton.setOnAction(e -> {
+            primaryStage.setScene(informationScene);
+            primaryStage.show();
+        });
+
         // Add Main Menu components to the Pane
-        mainMenuRoot.getChildren().addAll(greetingsLabel, startGameButton);
+        mainMenuRoot.getChildren().addAll(greetingsLabel, startGameButton, informationButton);
         return mainMenuScene;
+    }
+
+    public Scene createInformationScene() {
+        informationRoot = new Pane();
+        informationScene = new Scene(informationRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+
+        Label objectiveLabel = new Label(Constants.OBJECTIVE_MESSAGE);
+        objectiveLabel.setLayoutX(350);
+        objectiveLabel.setLayoutY(200);
+
+        Label wateringCanLabel = new Label(Constants.WATERING_CAN_INSTRUCTION);
+        wateringCanLabel.setLayoutX(350);
+        wateringCanLabel.setLayoutY(300);
+
+        Label sunLabel = new Label(Constants.SUN_INSTRUCTION);
+        sunLabel.setLayoutX(350);
+        sunLabel.setLayoutY(400);
+
+        Button backButton = new Button("Go Back");
+        backButton.setLayoutX(350);
+        backButton.setLayoutY(500);
+
+        informationScene.setCursor(Cursor.DEFAULT);
+
+        backButton.setOnAction(e -> {
+            primaryStage.setScene(mainMenuScene);
+            primaryStage.show();
+        });
+
+        informationRoot.getChildren().addAll(objectiveLabel, wateringCanLabel, sunLabel, backButton);
+
+        return informationScene;
     }
 
     public Scene createGameScene() {
