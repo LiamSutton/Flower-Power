@@ -11,6 +11,11 @@ public class Constants {
     static final double BUD_WILT_RATE = 0.03F;
     static final double BLOSSOM_WILT_RATE = 0.05F;
     static final double BLOOM_WILT_RATE = 0.10F;
+    static final int SEED_HEAL_VALUE = 5;
+    static final int SPROUT_HEAL_VALUE = 10;
+    static final int BUD_HEAL_VALUE = 20;
+    static final int BLOSSOM_HEAL_VALUE = 40;
+    static final int BLOOM_HEAL_VALUE = 80;
     static final String GAME_TITLE = "Flower Power!";
     static final String MENU_TITLE = "Main Menu";
     static final String GREETING_MESSAGE = "Welcome to Flower Power!";

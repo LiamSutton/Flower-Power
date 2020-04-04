@@ -17,7 +17,7 @@ public class Bud extends Growable implements IFlower {
 
     @Override
     public void heal() {
-        currentHealth += 3;
+        currentHealth += Constants.BUD_HEAL_VALUE;
         currentHealth = currentHealth >= maxHealth ? maxHealth : currentHealth;
     }
 

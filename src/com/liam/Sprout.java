@@ -25,7 +25,7 @@ public class Sprout extends Growable implements IFlower {
 
     @Override
     public void heal() {
-        currentHealth += 2;
+        currentHealth += Constants.SPROUT_HEAL_VALUE;
         currentHealth = currentHealth >= maxHealth ? maxHealth : currentHealth;
     }
 
