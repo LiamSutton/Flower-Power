@@ -63,7 +63,7 @@ public class FlowerDelegator {
     }
 
     public void grow() {
-        if (getIsWilted()) {
+        if (!getIsWilted()) {
             age++;
         }
     }
