@@ -48,6 +48,7 @@ public class Growable extends GameObject{
 //        currentHealth -= 1F;
     }
 
+    // TODO: should this be broken into 2 functions? checking the wilt -> changing the image?
     public boolean checkIsWilted() {
         double h = (currentHealth / maxHealth) * 100;
         if (h > 50F) {
