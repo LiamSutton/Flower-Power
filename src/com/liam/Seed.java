@@ -27,7 +27,7 @@ public class Seed extends Growable implements IFlower {
 
     @Override
     public void wilt() {
-        currentHealth -= 10;
+        currentHealth -= Constants.SEED_WILT_RATE;
     }
 
     @Override

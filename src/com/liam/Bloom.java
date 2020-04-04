@@ -23,7 +23,7 @@ public class Bloom extends Growable implements IFlower {
 
     @Override
     public void wilt() {
-        currentHealth -= 30;
+        currentHealth -= Constants.BLOOM_WILT_RATE;
     }
 
     @Override

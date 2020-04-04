@@ -23,7 +23,7 @@ public class Bud extends Growable implements IFlower {
 
     @Override
     public void wilt() {
-        currentHealth -= 20;
+        currentHealth -= Constants.BUD_WILT_RATE;
     }
 
     @Override

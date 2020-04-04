@@ -36,6 +36,6 @@ public class Sprout extends Growable implements IFlower {
 
     @Override
     public void wilt() {
-        currentHealth -= 15;
+        currentHealth -= Constants.SPROUT_WILT_RATE;
     }
 }
