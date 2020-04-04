@@ -51,6 +51,8 @@ public class FlowerPower extends Application {
                 System.out.println(GameManager.score);
                 primaryStage.show();
             }
+            backgroundContext.setFill(Color.SKYBLUE);
+            backgroundContext.fillRect(0, 0, backgroundLayerCanvas.getWidth(), backgroundLayerCanvas.getHeight());
             sun.Shine(flowerBed.getFlower(sun.currentPosition));
             flowerBed.update();
             wateringCan.update();
@@ -276,6 +278,6 @@ public class FlowerPower extends Application {
 
         flowerBed = new FlowerBed(backgroundContext, foregroundContext, 0, backgroundLayerCanvas.getHeight() - 128);
         wateringCan = new WateringCan(foregroundContext, 64, 384);
-        sun = new Sun(foregroundContext, 0, 224);
+        sun = new Sun(backgroundContext, 0, 224);
     }
 }

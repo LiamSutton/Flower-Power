@@ -45,9 +45,18 @@ public class Sun extends GameObject implements IMoveable {
     @Override
     public void update() {
         super.update();
+        gc.setGlobalAlpha(0.2);
+        gc.setFill(Color.DARKORANGE);
+        gc.setStroke(Color.YELLOW);
+
+
+        gc.fillPolygon(new double[]{x, x+64, x+128}, new double[]{700, y+128, 700}, 3);
+        gc.setGlobalAlpha(1);
     }
 
     public void Shine(FlowerDelegator target) {
+
         target.grow();
+
     }
 }
