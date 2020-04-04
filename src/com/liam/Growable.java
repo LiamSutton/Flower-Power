@@ -11,16 +11,18 @@ public class Growable extends GameObject{
     protected double currentHealth;
     protected String healthy;
     protected String wilted;
-    protected Text healthUI;
+    protected boolean isWilted;
+
     public Growable(GraphicsContext gc, double x, double y) {
         super(gc, x, y);
+        isWilted = false;
     }
 
     @Override
     public void update() {
         super.update();
         tickDamage();
-        checkWilted();
+        isWilted = checkIsWilted();
 
         double healthVal = (currentHealth / maxHealth) * 100;
         if (healthVal >= 75F) {
@@ -46,12 +48,14 @@ public class Growable extends GameObject{
 //        currentHealth -= 1F;
     }
 
-    public void checkWilted() {
+    public boolean checkIsWilted() {
         double h = (currentHealth / maxHealth) * 100;
         if (h > 50F) {
             img = new Image(healthy);
+            return false;
         } else {
             img = new Image(wilted);
+            return true;
         }
     }
 }
