@@ -21,7 +21,7 @@ public class Seed extends Growable implements IFlower {
 
     @Override
     public void heal() {
-        currentHealth += 1;
+        currentHealth += Constants.SEED_HEAL_VALUE;
         currentHealth = currentHealth >= maxHealth ? maxHealth : currentHealth;
     }
 
