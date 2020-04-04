@@ -15,7 +15,6 @@ public class GameObject {
         this.y = y;
     }
 
-    // TODO: Possibly check for null?
     public void setSizeProperties() {
         this.xSize = img.getWidth();
         this.ySize = img.getHeight();

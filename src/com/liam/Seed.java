@@ -32,6 +32,8 @@ public class Seed extends Growable implements IFlower {
 
     @Override
     public void grow() {
-        age += 1;
+        if (!isWilted) {
+            age += 1;
+        }
     }
 }

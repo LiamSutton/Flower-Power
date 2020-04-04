@@ -63,11 +63,14 @@ public class FlowerDelegator {
     }
 
     public void grow() {
-        age++;
+        if (!getIsWilted()) {
+            age++;
+        }
     }
 
 
     public double getCurrentHealth() {
         return ((Growable)delegate).currentHealth;
     }
+    public boolean getIsWilted() {return ((Growable)delegate).isWilted;}
 }
