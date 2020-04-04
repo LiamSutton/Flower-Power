@@ -49,6 +49,7 @@ public class FlowerDelegator {
             delegate = new Seed(gc, x, y);
             GameManager.lives--;
         }
+        delegate.wilt();
         delegate.update();
     }
 

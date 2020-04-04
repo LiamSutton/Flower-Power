@@ -21,7 +21,7 @@ public class Growable extends GameObject{
     @Override
     public void update() {
         super.update();
-        tickDamage();
+//        tickDamage();
         isWilted = checkIsWilted();
 
         double healthVal = (currentHealth / maxHealth) * 100;
@@ -45,7 +45,7 @@ public class Growable extends GameObject{
     }
 
     public void tickDamage() {
-//        currentHealth -= 1F;
+        currentHealth -= 0.05F;
     }
 
     // TODO: should this be broken into 2 functions? checking the wilt -> changing the image?

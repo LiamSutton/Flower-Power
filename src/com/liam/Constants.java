@@ -6,6 +6,11 @@ public class Constants {
     static final int MAX_FLOWER_COUNT = 8;
     static final int DIRECTION_LEFT = -1;
     static final int DIRECTION_RIGHT = 1;
+    static final double SEED_WILT_RATE = 0.01F;
+    static final double SPROUT_WILT_RATE = 0.02F;
+    static final double BUD_WILT_RATE = 0.03F;
+    static final double BLOSSOM_WILT_RATE = 0.05F;
+    static final double BLOOM_WILT_RATE = 0.10F;
     static final String GAME_TITLE = "Flower Power!";
     static final String MENU_TITLE = "Main Menu";
     static final String GREETING_MESSAGE = "Welcome to Flower Power!";
