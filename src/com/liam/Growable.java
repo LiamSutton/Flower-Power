@@ -21,32 +21,25 @@ public class Growable extends GameObject{
     @Override
     public void update() {
         super.update();
-//        tickDamage();
         isWilted = checkIsWilted();
 
         double healthVal = (currentHealth / maxHealth) * 100;
-        if (healthVal >= 75F) {
-            gc.setFill(Color.GREEN);
-            gc.setStroke(Color.GREEN);
-        } else if (healthVal >= 50F) {
+        if (healthVal >= 50F) {
+            gc.setFill(Color.FORESTGREEN);
+            gc.setStroke(Color.FORESTGREEN);
+        } else if (healthVal >= 25F) {
             gc.setFill(Color.YELLOW);
             gc.setStroke(Color.YELLOW);
-        } else if (healthVal >= 25F) {
-            gc.setFill(Color.ORANGE);
-            gc.setStroke(Color.ORANGE);
         } else {
             gc.setFill(Color.RED);
             gc.setStroke(Color.RED);
         }
 
-        gc.setFont(Font.font("Verdana", 20));
+        gc.setFont(Font.font("Consolas", 20));
         gc.strokeText(Integer.toString((int)this.currentHealth), x + 48, y + 196);
         gc.fillText(Integer.toString((int)this.currentHealth), x + 48, y + 196);
     }
 
-    public void tickDamage() {
-        currentHealth -= 0.05F;
-    }
 
     // TODO: should this be broken into 2 functions? checking the wilt -> changing the image?
     public boolean checkIsWilted() {
