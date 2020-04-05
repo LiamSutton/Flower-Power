@@ -6,10 +6,10 @@ public class Constants {
     static final int MAX_FLOWER_COUNT = 8;
     static final int DIRECTION_LEFT = -1;
     static final int DIRECTION_RIGHT = 1;
-    static final double SEED_WILT_RATE = 0.01F;
-    static final double SPROUT_WILT_RATE = 0.02F;
-    static final double BUD_WILT_RATE = 0.03F;
-    static final double BLOSSOM_WILT_RATE = 0.05F;
+    static final double SEED_WILT_RATE = 0.04F;
+    static final double SPROUT_WILT_RATE = 0.05F;
+    static final double BUD_WILT_RATE = 0.07F;
+    static final double BLOSSOM_WILT_RATE = 0.08F;
     static final double BLOOM_WILT_RATE = 0.10F;
     static final int SEED_HEAL_VALUE = 5;
     static final int SPROUT_HEAL_VALUE = 10;
