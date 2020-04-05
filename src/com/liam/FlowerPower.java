@@ -67,7 +67,7 @@ public class FlowerPower extends Application {
         public void handle(KeyEvent keyEvent) {
             if (keyEvent.getCode() == KeyCode.A) wateringCan.move(Constants.DIRECTION_LEFT);
             if (keyEvent.getCode() == KeyCode.D) wateringCan.move(Constants.DIRECTION_RIGHT);
-            if (keyEvent.getCode() == KeyCode.Q) {
+            if (keyEvent.getCode() == KeyCode.SPACE) {
                 int position = wateringCan.getCurrentPosition();
                 FlowerDelegator target = flowerBed.getFlower(position);
                 wateringCan.water(target);
@@ -194,12 +194,6 @@ public class FlowerPower extends Application {
         return informationScene;
     }
 
-    // career development: April 20th = 17 days
-    // design patterns: April 24th = 21 days
-    // client server: April 30th = 27 days
-    // data structures: May 15th
-    // net sec exam: may 19th
-    // net sec cw: 22 may
     public Scene createGameScene() {
         gameRoot = new Pane();
         gameScene = new Scene(gameRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
@@ -218,16 +212,17 @@ public class FlowerPower extends Application {
         wateringCan = new WateringCan(foregroundContext, 64, 384);
         sun = new Sun(foregroundContext, 0, 224);
         scoreText = new Text(0, 20, "SCORE: " + GameManager.score);
-        scoreText.setFont(new Font("verdana", 20));
+        scoreText.setFont(new Font("Consolas", 24));
         scoreText.setFill(Color.WHITE);
 
         livesText = new Text(0, 50, "LIVES LEFT: " + GameManager.lives);
-        livesText.setFont(new Font("verdana", 20));
+        livesText.setFont(new Font("Consolas", 24));
         livesText.setFill(Color.WHITE);
 
         gameRoot.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas, scoreText, livesText);
 
         gameScene.setOnKeyPressed(keyPressedEvent);
+        System.out.println(javafx.scene.text.Font.getFamilies());
 
         return gameScene;
     }
@@ -236,10 +231,10 @@ public class FlowerPower extends Application {
         gameOverRoot = new Pane();
         gameOverScene = new Scene(gameOverRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         Label scoreLabel = new Label("Your score was: " + GameManager.score);
-        scoreLabel.setFont(new Font("Verdana", 32));
+        scoreLabel.setFont(new Font("Arial Black", 32));
         scoreLabel.setLayoutX(300);
         scoreLabel.setLayoutY(100);
-        scoreLabel.setPrefSize(350, 100);
+        scoreLabel.setPrefSize(500, 100);
 
         Button restartButton = new Button("Play again");
         restartButton.setFont(new Font("Verdana", 24));
