@@ -29,8 +29,8 @@ public class Growable extends GameObject{
             gc.setFill(Color.GREEN);
             gc.setStroke(Color.GREEN);
         } else if (healthVal >= 50F) {
-            gc.setFill(Color.YELLOWGREEN);
-            gc.setStroke(Color.YELLOWGREEN);
+            gc.setFill(Color.YELLOW);
+            gc.setStroke(Color.YELLOW);
         } else if (healthVal >= 25F) {
             gc.setFill(Color.ORANGE);
             gc.setStroke(Color.ORANGE);
