@@ -7,7 +7,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class Growable extends GameObject{
-    protected int age, maxHealth;
+    protected int maxHealth;
     protected double currentHealth;
     protected String healthy;
     protected String wilted;
