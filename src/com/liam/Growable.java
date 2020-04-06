@@ -4,7 +4,6 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 
 public class Growable extends GameObject{
     protected int maxHealth;
@@ -51,5 +50,12 @@ public class Growable extends GameObject{
             img = new Image(wilted);
             return true;
         }
+    }
+
+    /**
+     *  ensures that a Growable Objects health never exceeds its defined limit
+     */
+    public void clampHealth() {
+        currentHealth = currentHealth > maxHealth ? maxHealth : currentHealth;
     }
 }

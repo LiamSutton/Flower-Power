@@ -18,7 +18,7 @@ public class Blossom extends Growable implements IFlower {
     @Override
     public void heal() {
         currentHealth += Constants.BLOSSOM_HEAL_VALUE;
-        currentHealth = currentHealth >= maxHealth ? maxHealth : currentHealth;
+        clampHealth();
     }
 
 
