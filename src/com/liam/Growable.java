@@ -101,7 +101,7 @@ public class Growable extends GameObject{
      * Displays the current health of the Object
      */
     public void displayHealth() {
-        gc.setFont(Font.font("Consolas", 20));
+        gc.setFont(Constants.HEALTH_FONT);
         gc.strokeText(Integer.toString((int)this.currentHealth), x + 48, y + 196);
         gc.fillText(Integer.toString((int)this.currentHealth), x + 48, y + 196);
     }

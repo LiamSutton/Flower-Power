@@ -1,5 +1,7 @@
 package com.liam;
 
+import javafx.scene.text.Font;
+
 public final class Constants {
 
     private Constants(){}
@@ -40,6 +42,13 @@ public final class Constants {
                                             "the game ends when you lose 3 lives.";
     static final String WATERING_CAN_INSTRUCTION = "Watering-can controls: A = LEFT, D = RIGHT";
     static final String SUN_INSTRUCTION = "Sun controls: LEFT ARROW = LEFT, RIGHT ARROW = RIGHT";
+
+    // Font Constants
+    static final Font HEALTH_FONT = new Font("Consolas", 20);
+    static final Font SCORE_FONT = new Font("Arial Black", 32);
+    static final Font MENU_FONT = new Font("Verdana", 24);
+    static final Font INSTRUCTIONS_FONT = new Font("Verdana", 22);
+    static final Font HEADING_FONT = new Font("Verdana", 32);
 
     // Image Path Constants
     static final String SEED_HEALTHY = "/Seed.png";
