@@ -30,10 +30,4 @@ public class Seed extends Growable implements IFlower {
         currentHealth -= Constants.SEED_WILT_RATE;
     }
 
-    @Override
-    public void grow() {
-        if (!isWilted) {
-            age += 1;
-        }
-    }
 }

@@ -6,6 +6,7 @@ public class Constants {
     static final int MAX_FLOWER_COUNT = 8;
     static final int DIRECTION_LEFT = -1;
     static final int DIRECTION_RIGHT = 1;
+    static final int MAX_LIVES = 3;
     static final double SEED_WILT_RATE = 0.04F;
     static final double SPROUT_WILT_RATE = 0.05F;
     static final double BUD_WILT_RATE = 0.07F;

@@ -26,8 +26,4 @@ public class Bloom extends Growable implements IFlower {
         currentHealth -= Constants.BLOOM_WILT_RATE;
     }
 
-    @Override
-    public void grow() {
-        age += 2F;
-    }
 }

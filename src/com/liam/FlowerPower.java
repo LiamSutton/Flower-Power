@@ -18,10 +18,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class FlowerPower extends Application {
-    Pane mainMenuRoot;
-    Pane informationRoot;
-    Pane gameRoot;
-    Pane gameOverRoot;
+
     Stage primaryStage;
     Scene gameScene;
     Scene mainMenuScene;
@@ -43,12 +40,10 @@ public class FlowerPower extends Application {
     AnimationTimer timer = new AnimationTimer() {
         @Override
         public void handle(long l) {
-            // TODO: is there a better way of updating the scenes value of score?
-            if (GameManager.lives <= 0) {
+            if (GameManager.gameOver()) {
                 timer.stop();
                 gameOverScene = createGameOverScene();
                 primaryStage.setScene(gameOverScene);
-                System.out.println(GameManager.score);
                 primaryStage.show();
             }
             backgroundContext.setFill(Color.SKYBLUE);
@@ -73,11 +68,6 @@ public class FlowerPower extends Application {
                 wateringCan.water(target);
             }
 
-            if (keyEvent.getCode() == KeyCode.SPACE) {
-                int position = wateringCan.getCurrentPosition();
-                FlowerDelegator target = flowerBed.getFlower(position);
-                wateringCan.wilt(target);
-            }
             if (keyEvent.getCode() == KeyCode.LEFT) sun.move(Constants.DIRECTION_LEFT);
             if (keyEvent.getCode() == KeyCode.RIGHT) sun.move(Constants.DIRECTION_RIGHT);
             if (keyEvent.getCode() == KeyCode.W) GameManager.score+=100;
@@ -99,7 +89,7 @@ public class FlowerPower extends Application {
     }
 
     public Scene createMainMenuScene() {
-        mainMenuRoot = new Pane();
+        Pane mainMenuRoot = new Pane();
         mainMenuScene = new Scene(mainMenuRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 
         // Create UI for Main Menu
@@ -143,7 +133,7 @@ public class FlowerPower extends Application {
     }
 
     public Scene createInformationScene() {
-        informationRoot = new Pane();
+        Pane informationRoot = new Pane();
         informationScene = new Scene(informationRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 
         Label objectiveHeadingLabel = new Label("Objective");
@@ -195,7 +185,7 @@ public class FlowerPower extends Application {
     }
 
     public Scene createGameScene() {
-        gameRoot = new Pane();
+        Pane gameRoot = new Pane();
         gameScene = new Scene(gameRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         gameScene.setCursor(Cursor.NONE);
 
@@ -228,7 +218,7 @@ public class FlowerPower extends Application {
     }
 
     public Scene createGameOverScene() {
-        gameOverRoot = new Pane();
+        Pane gameOverRoot = new Pane();
         gameOverScene = new Scene(gameOverRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         Label scoreLabel = new Label("Your score was: " + GameManager.score);
         scoreLabel.setFont(new Font("Arial Black", 32));
@@ -268,9 +258,7 @@ public class FlowerPower extends Application {
     }
 
     public void resetGameState() {
-        GameManager.score = 0;
-        GameManager.lives = 3;
-
+        GameManager.resetGameVariables();
         flowerBed = new FlowerBed(backgroundContext, foregroundContext, 0, backgroundLayerCanvas.getHeight() - 128);
         wateringCan = new WateringCan(foregroundContext, 64, 384);
         sun = new Sun(backgroundContext, 0, 224);
