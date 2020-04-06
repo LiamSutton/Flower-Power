@@ -212,7 +212,6 @@ public class FlowerPower extends Application {
         gameRoot.getChildren().addAll(backgroundLayerCanvas, foregroundLayerCanvas, scoreText, livesText);
 
         gameScene.setOnKeyPressed(keyPressedEvent);
-        System.out.println(javafx.scene.text.Font.getFamilies());
 
         return gameScene;
     }
