@@ -36,6 +36,8 @@ public final class Constants {
     // UI Text Constants
     static final String GAME_TITLE = "Flower Power!";
     static final String MENU_TITLE = "Main Menu";
+    static final String INFORMATION_TITLE = "How To Play";
+    static final String GAME_OVER_TITLE = "GAME OVER";
     static final String GREETING_MESSAGE = "Welcome to Flower Power!";
     static final String OBJECTIVE_MESSAGE = "The aim of flower power is to keep all the plants in your flowerbed healthy\nuntil they grow enough that they can be harvested!\n" +
                                             "Every time a plant gets harvested you get 100 points and any time a plant dies\nyou lose a life, " +

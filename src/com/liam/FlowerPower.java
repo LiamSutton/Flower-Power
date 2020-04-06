@@ -114,6 +114,7 @@ public class FlowerPower extends Application {
                 timer.stop();
                 gameOverScene = createGameOverScene();
                 primaryStage.setScene(gameOverScene);
+                primaryStage.setTitle(Constants.GAME_OVER_TITLE);
                 primaryStage.show();
             }
 
@@ -177,6 +178,7 @@ public class FlowerPower extends Application {
         gameOverScene = createGameOverScene();
 
         primaryStage.setScene(mainMenuScene);
+        primaryStage.setTitle(Constants.MENU_TITLE);
         primaryStage.show();
 
     }
@@ -216,6 +218,7 @@ public class FlowerPower extends Application {
             // Transition to game scene
             resetGameState();
             primaryStage.setScene(gameScene);
+            primaryStage.setTitle(Constants.GAME_TITLE);
             timer.start();
             primaryStage.show();
         });
@@ -223,6 +226,7 @@ public class FlowerPower extends Application {
         // Transition to the information scene
         informationButton.setOnAction(e -> {
             primaryStage.setScene(informationScene);
+            primaryStage.setTitle(Constants.INFORMATION_TITLE);
             primaryStage.show();
         });
 
@@ -279,6 +283,7 @@ public class FlowerPower extends Application {
 
         backButton.setOnAction(e -> {
             primaryStage.setScene(mainMenuScene);
+            primaryStage.setTitle(Constants.MENU_TITLE);
             primaryStage.show();
         });
 
@@ -353,12 +358,14 @@ public class FlowerPower extends Application {
         restartButton.setOnAction(e -> {
             resetGameState();
             primaryStage.setScene(gameScene);
+            primaryStage.setTitle(Constants.GAME_TITLE);
             timer.start();
             primaryStage.show();
         });
 
         menuButton.setOnAction(e -> {
             primaryStage.setScene(mainMenuScene);
+            primaryStage.setTitle(Constants.MENU_TITLE);
             primaryStage.show();
         });
 
