@@ -13,10 +13,6 @@ public class WateringCan extends GameObject implements IMoveable{
         update();
     }
 
-    @Override
-    public void update() {
-        super.update();
-    }
 
     public void move(int direction) {
         if (direction == Constants.DIRECTION_RIGHT) {

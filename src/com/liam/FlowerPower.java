@@ -18,10 +18,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class FlowerPower extends Application {
-    Pane mainMenuRoot;
-    Pane informationRoot;
-    Pane gameRoot;
-    Pane gameOverRoot;
+
     Stage primaryStage;
     Scene gameScene;
     Scene mainMenuScene;
@@ -99,7 +96,7 @@ public class FlowerPower extends Application {
     }
 
     public Scene createMainMenuScene() {
-        mainMenuRoot = new Pane();
+        Pane mainMenuRoot = new Pane();
         mainMenuScene = new Scene(mainMenuRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 
         // Create UI for Main Menu
@@ -143,7 +140,7 @@ public class FlowerPower extends Application {
     }
 
     public Scene createInformationScene() {
-        informationRoot = new Pane();
+        Pane informationRoot = new Pane();
         informationScene = new Scene(informationRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 
         Label objectiveHeadingLabel = new Label("Objective");
@@ -195,7 +192,7 @@ public class FlowerPower extends Application {
     }
 
     public Scene createGameScene() {
-        gameRoot = new Pane();
+        Pane gameRoot = new Pane();
         gameScene = new Scene(gameRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         gameScene.setCursor(Cursor.NONE);
 
@@ -228,7 +225,7 @@ public class FlowerPower extends Application {
     }
 
     public Scene createGameOverScene() {
-        gameOverRoot = new Pane();
+        Pane gameOverRoot = new Pane();
         gameOverScene = new Scene(gameOverRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         Label scoreLabel = new Label("Your score was: " + GameManager.score);
         scoreLabel.setFont(new Font("Arial Black", 32));
