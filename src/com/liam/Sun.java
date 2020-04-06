@@ -16,7 +16,7 @@ public class Sun extends GameObject implements IMoveable {
     /**
      * A fixed array of Y co-ordinates representing the Suns position when on the relevant position of the grid
      */
-    final int[] yPositions = {224, 128, 32, 0, 0, 32, 128, 224}; // Quicker than calculating on the fly
+    final int[] yPositions = Constants.SUN_Y_POSITIONS; // Quicker than calculating on the fly
 
     /**
      * Instantiates the Object and sets its grid position to the 0th index
@@ -36,25 +36,24 @@ public class Sun extends GameObject implements IMoveable {
      * off of the screen, it will loop to the opposite side of the grid
      * @param direction The value the users input maps to
      */
-    // TODO: replace 128 with constant
     @Override
     public void move(int direction) {
         if (direction == Constants.DIRECTION_RIGHT) {
-            if (currentPosition == 7) {
-                currentPosition = 0;
+            if (currentPosition == Constants.GRID_END) {
+                currentPosition = Constants.GRID_START;
             } else {
                 currentPosition++;
             }
         }
         if (direction == Constants.DIRECTION_LEFT) {
-            if (currentPosition == 0) {
-                currentPosition = 7;
+            if (currentPosition == Constants.GRID_START) {
+                currentPosition = Constants.GRID_END;
             } else {
                 currentPosition--;
             }
         }
         y = yPositions[currentPosition];
-        x = (currentPosition * 128);
+        x = (currentPosition * Constants.GRID_COL_WIDTH);
 
     }
 
