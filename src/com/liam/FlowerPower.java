@@ -17,64 +17,155 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * This is the Class that holds the main loop of the Program
+ */
 public class FlowerPower extends Application {
 
+    /**
+     * The stage which will be currently shown
+     */
     Stage primaryStage;
+
+    /**
+     * The Scene for the game loop
+     */
     Scene gameScene;
+
+    /**
+     * The Scene for the main menu
+     */
     Scene mainMenuScene;
+
+    /**
+     * The Scene for the information screen
+     */
     Scene informationScene;
+
+    /**
+     * The Scene for the game over screen
+     */
     Scene gameOverScene;
+
+    /**
+     * The layer on which all background Objects will be drawn
+     */
     Canvas backgroundLayerCanvas;
+
+    /**
+     * The layer on which all foreground Objects will be drawn
+     */
     Canvas foregroundLayerCanvas;
+
+    /**
+     * Context for the background layer
+     */
     GraphicsContext backgroundContext;
+
+    /**
+     * Context for the foreground layer
+     */
     GraphicsContext foregroundContext;
+
+    /**
+     * Displays the players current score
+     */
     Text scoreText;
+
+    /**
+     * Displays the players remaining lives
+     */
     Text livesText;
+
+    /**
+     * The flowerbed which holds all the flowers
+     */
     FlowerBed flowerBed;
+
+    /**
+     * The watering can used to heal flowers in the flowerbed
+     */
     WateringCan wateringCan;
+
+    /**
+     * The sun used to grow flowers in the flowerbed
+     */
     Sun sun;
+
+    /**
+     * Run the main loop of the application
+     * @param args arguments provided to the program
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+     * This is where all the updates in the main game loop occur and aims to run at a consistent 60FPS
+     */
     AnimationTimer timer = new AnimationTimer() {
         @Override
         public void handle(long l) {
+
+            // If the player has ran out of lives, transition to the game over scene
             if (GameManager.gameOver()) {
                 timer.stop();
                 gameOverScene = createGameOverScene();
                 primaryStage.setScene(gameOverScene);
                 primaryStage.show();
             }
+
+            // Render the background
             backgroundContext.setFill(Color.SKYBLUE);
             backgroundContext.fillRect(0, 0, backgroundLayerCanvas.getWidth(), backgroundLayerCanvas.getHeight());
+
+            // Attempt to grow the flower at the suns current position
             sun.Shine(flowerBed.getFlower(sun.currentPosition));
+
+            // update all flowers in the flowerbed
             flowerBed.update();
+
+            // redraw the watering can at its current position
             wateringCan.update();
+
+            // redraw the sun at its current position
             sun.update();
             scoreText.setText("SCORE: " + GameManager.score);
             livesText.setText("LIVES LEFT: " + GameManager.lives);
         }
     };
 
+    /**
+     * Any keyboard input will trigger this event to be raised
+     */
     EventHandler<KeyEvent> keyPressedEvent = new EventHandler<KeyEvent>() {
         @Override
         public void handle(KeyEvent keyEvent) {
+            // Move the watering can left
             if (keyEvent.getCode() == KeyCode.A) wateringCan.move(Constants.DIRECTION_LEFT);
+
+            // Move the watering can right
             if (keyEvent.getCode() == KeyCode.D) wateringCan.move(Constants.DIRECTION_RIGHT);
+
+            // Water the flower at the watering cans current position
             if (keyEvent.getCode() == KeyCode.SPACE) {
                 int position = wateringCan.getCurrentPosition();
                 FlowerDelegator target = flowerBed.getFlower(position);
                 wateringCan.water(target);
             }
 
+            // Move the sun left
             if (keyEvent.getCode() == KeyCode.LEFT) sun.move(Constants.DIRECTION_LEFT);
+
+            // Move the sun right
             if (keyEvent.getCode() == KeyCode.RIGHT) sun.move(Constants.DIRECTION_RIGHT);
-            if (keyEvent.getCode() == KeyCode.W) GameManager.score+=100;
-            if (keyEvent.getCode() == KeyCode.P) GameManager.lives--;
         }
     };
 
+    /**
+     *  Initialize all of the Scenes and load the main menu
+     * @param stage the Stage to be launched
+     */
     @Override
     public void start(Stage stage) {
         primaryStage = stage;
@@ -88,6 +179,10 @@ public class FlowerPower extends Application {
 
     }
 
+    /**
+     * Create the main menu scene
+     * @return the created Scene Object
+     */
     public Scene createMainMenuScene() {
         Pane mainMenuRoot = new Pane();
         mainMenuScene = new Scene(mainMenuRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
@@ -113,6 +208,7 @@ public class FlowerPower extends Application {
 
 
         mainMenuScene.setCursor(Cursor.DEFAULT);
+
         // Hook up scene transition
         startGameButton.setOnAction(e-> {
             // Transition to game scene
@@ -122,6 +218,7 @@ public class FlowerPower extends Application {
             primaryStage.show();
         });
 
+        // Transition to the information scene
         informationButton.setOnAction(e -> {
             primaryStage.setScene(informationScene);
             primaryStage.show();
@@ -132,6 +229,10 @@ public class FlowerPower extends Application {
         return mainMenuScene;
     }
 
+    /**
+     * Create the information scene
+     * @return the created Scene Object
+     */
     public Scene createInformationScene() {
         Pane informationRoot = new Pane();
         informationScene = new Scene(informationRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
@@ -184,6 +285,10 @@ public class FlowerPower extends Application {
         return informationScene;
     }
 
+    /**
+     * Create the game scene
+     * @return the created Scene Object
+     */
     public Scene createGameScene() {
         Pane gameRoot = new Pane();
         gameScene = new Scene(gameRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
@@ -216,6 +321,10 @@ public class FlowerPower extends Application {
         return gameScene;
     }
 
+    /**
+     * Create the game over scene
+     * @return The created Scene
+     */
     public Scene createGameOverScene() {
         Pane gameOverRoot = new Pane();
         gameOverScene = new Scene(gameOverRoot, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
@@ -256,6 +365,9 @@ public class FlowerPower extends Application {
         return gameOverScene;
     }
 
+    /**
+     * Return the game to its initial state to allow replay
+     */
     public void resetGameState() {
         GameManager.resetGameVariables();
         flowerBed = new FlowerBed(backgroundContext, foregroundContext, 0, backgroundLayerCanvas.getHeight() - 128);
