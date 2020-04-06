@@ -7,7 +7,7 @@ public class WateringCan extends GameObject implements IMoveable{
     private int currentPosition;
     public WateringCan(GraphicsContext gc, double x, double y) {
         super(gc, x, y);
-        img = new Image("/WateringCan.png");
+        img = new Image(Constants.WATERING_CAN);
         super.setSizeProperties();
         currentPosition = 0;
         update();
