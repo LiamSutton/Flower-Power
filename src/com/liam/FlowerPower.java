@@ -40,12 +40,10 @@ public class FlowerPower extends Application {
     AnimationTimer timer = new AnimationTimer() {
         @Override
         public void handle(long l) {
-            // TODO: is there a better way of updating the scenes value of score?
-            if (GameManager.lives <= 0) {
+            if (GameManager.gameOver()) {
                 timer.stop();
                 gameOverScene = createGameOverScene();
                 primaryStage.setScene(gameOverScene);
-                System.out.println(GameManager.score);
                 primaryStage.show();
             }
             backgroundContext.setFill(Color.SKYBLUE);
@@ -265,9 +263,7 @@ public class FlowerPower extends Application {
     }
 
     public void resetGameState() {
-        GameManager.score = 0;
-        GameManager.lives = 3;
-
+        GameManager.resetGameVariables();
         flowerBed = new FlowerBed(backgroundContext, foregroundContext, 0, backgroundLayerCanvas.getHeight() - 128);
         wateringCan = new WateringCan(foregroundContext, 64, 384);
         sun = new Sun(backgroundContext, 0, 224);
