@@ -6,9 +6,17 @@ package com.liam;
  */
 public interface IFlower {
     /**
-     *
+     * Does this need to be here lmao?
      */
     void update();
+
+    /**
+     *  This will heal the IFlower for a value specified in its implementation
+     */
     void heal();
+
+    /**
+     *  This will damage the IFlower for a value specified in its implementation
+     */
     void wilt();
 }
