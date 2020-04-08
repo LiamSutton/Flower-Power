@@ -10,4 +10,6 @@ public interface IMoveable {
      * @param direction The direction the Players input maps to
      */
     void move(int direction);
+
+    int getCurrentPosition();
 }

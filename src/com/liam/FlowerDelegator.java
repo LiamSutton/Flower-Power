@@ -9,7 +9,7 @@ public class FlowerDelegator {
     /**
      * Reference to the delegate
      */
-    IFlower delegate;
+    private IFlower delegate;
 
     /**
      * Represents the growth of the flower
@@ -19,12 +19,12 @@ public class FlowerDelegator {
     /**
      * Represents the context provided by the canvas (layer) the Object should be rendered on
      */
-    GraphicsContext gc;
+    private GraphicsContext gc;
 
     /**
      * Represents the X and Y position the FlowerDelegator will spawn Objects at
      */
-    double x,y;
+    private double x,y;
 
     /**
      * The Constructor will initialise the Object and instantiate the delegate as a Seed
@@ -83,13 +83,6 @@ public class FlowerDelegator {
      */
     public void heal() {
         delegate.heal();
-    }
-
-    /**
-     * Damages the delegate for a value specified in its implementation
-     */
-    public void wilt() {
-        delegate.wilt();
     }
 
     /**

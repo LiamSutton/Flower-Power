@@ -123,7 +123,7 @@ public class FlowerPower extends Application {
             backgroundContext.fillRect(0, 0, backgroundLayerCanvas.getWidth(), backgroundLayerCanvas.getHeight());
 
             // Attempt to grow the flower at the suns current position
-            sun.Shine(flowerBed.getFlower(sun.currentPosition));
+            sun.Shine(flowerBed.getFlower(sun.getCurrentPosition()));
 
             // update all flowers in the flowerbed
             flowerBed.update();
@@ -172,6 +172,7 @@ public class FlowerPower extends Application {
     @Override
     public void start(Stage stage) {
         primaryStage = stage;
+        primaryStage.setResizable(false);
         mainMenuScene = createMainMenuScene();
         informationScene = createInformationScene();
         gameScene = createGameScene();

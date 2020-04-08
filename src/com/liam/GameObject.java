@@ -15,7 +15,7 @@ public class GameObject {
         this.y = y;
     }
 
-    public void setSizeProperties() {
+    protected void setSizeProperties() {
         this.xSize = img.getWidth();
         this.ySize = img.getHeight();
     }

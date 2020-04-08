@@ -11,12 +11,12 @@ public class Sun extends GameObject implements IMoveable {
     /**
      * The current position of the Sun on the grid
      */
-    int currentPosition;
+    private int currentPosition;
 
     /**
      * A fixed array of Y co-ordinates representing the Suns position when on the relevant position of the grid
      */
-    final int[] yPositions = Constants.SUN_Y_POSITIONS; // Quicker than calculating on the fly
+    private final int[] yPositions = Constants.SUN_Y_POSITIONS; // Quicker than calculating on the fly
 
     /**
      * Instantiates the Object and sets its grid position to the 0th index
@@ -71,14 +71,14 @@ public class Sun extends GameObject implements IMoveable {
      * Attempts to grow the Object represented by the delegate the Object represents
      * @param target The Object representing the delegate
      */
-    public void Shine(FlowerDelegator target) {
+    protected void Shine(FlowerDelegator target) {
         target.grow();
     }
 
     /**
      * Casts a ray to indicate the flower that is currently getting grown by the Sun
      */
-    public void castRay() {
+    private void castRay() {
         gc.setGlobalAlpha(0.2);
         gc.setFill(Color.DARKORANGE);
         gc.setStroke(Color.YELLOW);
@@ -86,5 +86,9 @@ public class Sun extends GameObject implements IMoveable {
 
         gc.fillPolygon(new double[]{x, x+64, x+128}, new double[]{700, y+128, 700}, 3);
         gc.setGlobalAlpha(1);
+    }
+
+    public int getCurrentPosition(){
+        return currentPosition;
     }
 }

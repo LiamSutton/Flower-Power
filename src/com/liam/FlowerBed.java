@@ -13,12 +13,12 @@ public class FlowerBed extends GameObject {
     /**
      * Used to draw the flowers over the background image of the FlowerBed
      */
-    GraphicsContext foregroundContext;
+    private GraphicsContext foregroundContext;
 
     /**
      * An aggregation of FlowerDelegator Objects
      */
-    ArrayList<FlowerDelegator> flowers;
+    private ArrayList<FlowerDelegator> flowers;
 
     /**
      *  Instantiates the FlowerBed Object and sets up the necessary conditions to grow the flowers

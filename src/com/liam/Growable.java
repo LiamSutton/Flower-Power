@@ -62,7 +62,7 @@ public class Growable extends GameObject{
      * Converts the Objects health into a percentage and if it is below 50%, changes it to its wilted state
      * @return whether the Object is in its wilted state
      */
-    public boolean checkIsWilted() {
+    private boolean checkIsWilted() {
         double h = (currentHealth / maxHealth) * 100;
         if (h > 50F) {
             img = new Image(healthy);
@@ -76,14 +76,14 @@ public class Growable extends GameObject{
     /**
      *  ensures that a Growable Objects health never exceeds its defined limit
      */
-    public void clampHealth() {
+    protected void clampHealth() {
         currentHealth = currentHealth > maxHealth ? maxHealth : currentHealth;
     }
 
     /**
      * Changes the colour of the Objects health UI depending on its current health value
      */
-    public void setHealthColour() {
+    private void setHealthColour() {
         double healthVal = (currentHealth / maxHealth) * 100;
         if (healthVal >= 50F) {
             gc.setFill(Color.FORESTGREEN);
@@ -100,7 +100,7 @@ public class Growable extends GameObject{
     /**
      * Displays the current health of the Object
      */
-    public void displayHealth() {
+    private void displayHealth() {
         gc.setFont(Constants.HEALTH_FONT);
         gc.strokeText(Integer.toString((int)this.currentHealth), x + 48, y + 196);
         gc.fillText(Integer.toString((int)this.currentHealth), x + 48, y + 196);
