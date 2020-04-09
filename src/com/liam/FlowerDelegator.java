@@ -76,8 +76,6 @@ public class FlowerDelegator {
     }
 
 
-    // TODO: investigate potential solution to adding max health checks to every IFlower.
-
     /**
      * Heals the delegate for a value specified in its implementation
      */

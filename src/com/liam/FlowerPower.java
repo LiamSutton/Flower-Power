@@ -264,13 +264,13 @@ public class FlowerPower extends Application {
 
         Label wateringCanLabel = new Label(Constants.WATERING_CAN_INSTRUCTION);
         wateringCanLabel.setFont(Constants.INSTRUCTIONS_FONT);
-        wateringCanLabel.setLayoutX(250);
+        wateringCanLabel.setLayoutX(100);
         wateringCanLabel.setLayoutY(400);
         wateringCanLabel.setPrefSize(1024, 100);
 
         Label sunLabel = new Label(Constants.SUN_INSTRUCTION);
         sunLabel.setFont(Constants.INSTRUCTIONS_FONT);
-        sunLabel.setLayoutX(250);
+        sunLabel.setLayoutX(100);
         sunLabel.setLayoutY(450);
         sunLabel.setPrefSize(1024, 100);
 

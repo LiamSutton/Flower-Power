@@ -41,8 +41,8 @@ public final class Constants {
     static final String GREETING_MESSAGE = "Welcome to Flower Power!";
     static final String OBJECTIVE_MESSAGE = "The aim of flower power is to keep all the plants in your flowerbed healthy\nuntil they grow enough that they can be harvested!\n" +
                                             "Every time a plant gets harvested you get 100 points and any time a plant dies\nyou lose a life, " +
-                                            "the game ends when you lose 3 lives.";
-    static final String WATERING_CAN_INSTRUCTION = "Watering-can controls: A = LEFT, D = RIGHT";
+                                            "the game ends when you lose 3 lives. \n(note: only healthy flowers (not wilting) will grow in sunlight!)";
+    static final String WATERING_CAN_INSTRUCTION = "Watering-can controls: A = LEFT, D = RIGHT, Water: SPACE";
     static final String SUN_INSTRUCTION = "Sun controls: LEFT ARROW = LEFT, RIGHT ARROW = RIGHT";
 
     // Font Constants
